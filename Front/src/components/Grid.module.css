@@ -1,0 +1,20 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(24, 1fr);
+    gap: 2px;
+  }
+  
+  .cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333333;
+    height: 40px; /* Ajuste conforme necessário */
+  }
+  
+  .darkCell {
+    background-color: #2D2D2D;
+    color: #fff;
+  }
+  
