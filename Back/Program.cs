@@ -14,6 +14,7 @@ builder.Services.AddSingleton<CryptoService>(p => new(){
     InternalKeySize = 24,
     UpdatePeriod = TimeSpan.FromDays(1)
 });
+builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddSingleton<ISecurityService, SecurityService>();
 
 builder.Services.AddControllers().AddJsonOptions(options =>
@@ -46,6 +47,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("DefaultPolicy");
 
 app.UseHttpsRedirection();
 

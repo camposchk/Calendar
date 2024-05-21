@@ -22,8 +22,8 @@ public class UserService : IUserService
         Client usuario = new Client();
         var salt = await security.GenerateSalt();
 
-        usuario.Cpf = data.Login;
-        usuario.Name = data.Nome;
+        usuario.Cpf = data.Cpf;
+        usuario.Name = data.Name;
         usuario.Password = await security.HashPassword(
             data.Password, salt
         );

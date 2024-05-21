@@ -29,7 +29,7 @@ public partial class CalendarContext : DbContext
     {
         modelBuilder.Entity<Client>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Client__3214EC270A6B824B");
+            entity.HasKey(e => e.Id).HasName("PK__Client__3214EC2791E54D97");
 
             entity.ToTable("Client");
 
@@ -48,7 +48,7 @@ public partial class CalendarContext : DbContext
 
         modelBuilder.Entity<Event>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Event__3214EC27505881C1");
+            entity.HasKey(e => e.Id).HasName("PK__Event__3214EC27794880EC");
 
             entity.ToTable("Event");
 
@@ -76,7 +76,7 @@ public partial class CalendarContext : DbContext
 
         modelBuilder.Entity<Tag>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Tag__3214EC270441823C");
+            entity.HasKey(e => e.Id).HasName("PK__Tag__3214EC27BD378B3C");
 
             entity.ToTable("Tag");
 

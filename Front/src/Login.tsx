@@ -1,49 +1,49 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import style from './Login.module.css';
 import { Input } from './components/Input';
 import logo from './assets/logo.png';
 
-interface ILogin {
-  username: string,
-  password: string
-}
+const Login: React.FC = () => {
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [error, setErrorState] = useState<string>('');
+  const navigate = useNavigate();
 
-function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-
-  const handleLogin = async () => {
-    // e.preventDefault();
-
+  const handleLogin = async (cpf: string, password: string, setError: (error: string) => void): Promise<void> => {
     try {
       const response = await fetch('http://localhost:5136/user/login', {
         method: 'POST',
-        // headers: {
-        //   'Content-Type': 'application/json',
-        // },
-        body: JSON.stringify({ username, password }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ cpf, password }),
       });
-
+  
       if (!response.ok) {
         throw new Error('Login failed');
       }
-
+  
       const data = await response.json();
       console.log('Login successful:', data);
+      navigate('/calendar');
     } catch (err: any) {
-      console.log("aaa", username, password);
+      console.error('Error during login:', err);  
       setError(err.message);
     }
   };
-
+  
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleLogin(username, password, setErrorState);
+  };
   return (
     <section className={style["center"]}>
       <img src={logo} alt="" height={189} width={189} />
       <h1 className={style["title"]}>Welcome!</h1>
       <div className={style["window"]}>
         <h1 className={style["title"]} style={{ marginTop: 51, marginLeft: 27 }}>Sign In</h1>
-        <form onSubmit={() => handleLogin}>
+        <form onSubmit={onSubmit}>
           <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', marginTop: 13 }}>
             <Input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
             <Input placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />

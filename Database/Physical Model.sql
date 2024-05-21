@@ -15,6 +15,7 @@ create table Client(
 	Name varchar(100) not null,
 	CPF char(11) not null,
 	Password varchar(MAX) not null,
+	Salt varchar(MAX) 
 );
 go
 
@@ -38,6 +39,9 @@ create table Event (
     IDClient int references Client(ID) not null,
 	IDTag int references Tag(ID),
 );
+go
+
+insert into Client values (1, 'Juan', '11122233344', 'abcd1234');
 go
 
 
