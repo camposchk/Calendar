@@ -45,7 +45,7 @@ const Login: React.FC = () => {
         <h1 className={style["title"]} style={{ marginTop: 51, marginLeft: 27 }}>Sign In</h1>
         <form onSubmit={onSubmit}>
           <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', marginTop: 13 }}>
-            <Input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+            <Input placeholder="CPF" value={username} onChange={(e) => setUsername(e.target.value)} />
             <Input placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             {error && <p style={{ color: 'red' }}>{error}</p>}
             <button className={style["social"]} style={{ background: '#000', marginTop: 15 }}>
@@ -74,7 +74,7 @@ const Login: React.FC = () => {
           </div>
           <hr style={{ marginTop: 20 }} />
           <div style={{ display: 'flex', justifyContent: 'flex-end', marginRight: 24, marginTop: 25 }}>
-            <button className={style["button"]} style={{ backgroundColor: '#2B2B2B', color: '#E6E8E6', marginRight: 15 }}>Cancel</button>
+            <button className={style["button"]} style={{ backgroundColor: '#2B2B2B', color: '#E6E8E6', marginRight: 15 }} onClick={() => navigate('/register')}>Register</button>
             <button className={style["button"]} style={{ background: "linear-gradient(0deg, #D33E43 0%, #D33E43 100%)", color: '#E6E8E6' }} type='submit'>Login</button>
           </div>
         </form>
