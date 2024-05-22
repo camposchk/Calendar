@@ -1,18 +1,9 @@
-using System;
-using System.IO;
-using System.Linq;
-using System.Text.Json;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-
 
 namespace Back.Controllers;
 
 using DTO;
-using Model;
 using Services;
 using Trevisharp.Security.Jwt;
 

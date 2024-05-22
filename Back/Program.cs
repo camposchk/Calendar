@@ -15,6 +15,7 @@ builder.Services.AddSingleton<CryptoService>(p => new(){
     UpdatePeriod = TimeSpan.FromDays(1)
 });
 builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddScoped<IEventService, EventService>();
 builder.Services.AddSingleton<ISecurityService, SecurityService>();
 
 builder.Services.AddControllers().AddJsonOptions(options =>
