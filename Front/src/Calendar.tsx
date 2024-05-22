@@ -10,8 +10,10 @@ function Calendar() {
             <div>
                 <Month />
             </div>
-            <h1>Eventos</h1>
-            <h2>09/05</h2>
+            <div style={{display: 'flex', flexDirection: 'row'}}>
+                <h1>Eventos</h1>
+                <h2 style={{marginTop: 12, marginLeft: 8}}>09/05</h2>
+            </div>
             <div className={style["events"]}></div>
         </div>
         <div className={style["wrap-right"]}>
