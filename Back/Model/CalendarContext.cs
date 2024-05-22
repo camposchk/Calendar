@@ -23,13 +23,13 @@ public partial class CalendarContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=SNCCHLAB04F11;Initial Catalog=Calendar;Integrated Security=True;TrustServerCertificate=true");
+        => optionsBuilder.UseSqlServer("Data Source=SNCCHLAB04F12;Initial Catalog=Calendar;Integrated Security=True;TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Client>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Client__3214EC27F81A96EB");
+            entity.HasKey(e => e.Id).HasName("PK__Client__3214EC27FC9CE426");
 
             entity.ToTable("Client");
 
@@ -48,7 +48,7 @@ public partial class CalendarContext : DbContext
 
         modelBuilder.Entity<Event>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Event__3214EC2799D7740B");
+            entity.HasKey(e => e.Id).HasName("PK__Event__3214EC2735754776");
 
             entity.ToTable("Event");
 
@@ -76,7 +76,7 @@ public partial class CalendarContext : DbContext
 
         modelBuilder.Entity<Tag>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Tag__3214EC2754B65885");
+            entity.HasKey(e => e.Id).HasName("PK__Tag__3214EC279CEA58FE");
 
             entity.ToTable("Tag");
 

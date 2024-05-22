@@ -1,9 +1,10 @@
 using Back.Model;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Back.Services;
 
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+using DTO;
 using Model;
 
 public class EventService : IEventService
@@ -17,7 +18,7 @@ public class EventService : IEventService
 
     public async Task Create(EventData data)
     {
-        Console.WriteLine(data.Name);
+
 
         Event task = new Event();
 
@@ -33,6 +34,7 @@ public class EventService : IEventService
 
         this.ctx.Add(task);
         await this.ctx.SaveChangesAsync();
+
     }
 
     public async Task DeleteByID(int Id)

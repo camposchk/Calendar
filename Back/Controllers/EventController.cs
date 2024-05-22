@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Back.Controllers;
 using Services;
+using DTO;
 
 [ApiController]
 [Route("event")]
@@ -25,15 +26,10 @@ public class EventController : ControllerBase
 
         if (data.StartDate == default(DateTime))
             errors.Add("A data de início do evento é obrigatória");
-        try
-        {
-            await service.Create(data);
-            return Ok("Criado com Sucesso");
-        }
-        catch (System.Exception)
-        {
-            return BadRequest("Houve algum erro");
-        }
+
+        await service.Create(data);
+        return Ok("Criado com Sucesso");
+
     }
 
     [HttpPost("get/{id}")]

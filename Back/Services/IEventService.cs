@@ -1,5 +1,6 @@
 namespace Back.Services;
 
+using DTO;
 using Model;
 
 public interface IEventService

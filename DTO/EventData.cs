@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+namespace DTO;
 
-namespace Back.Model;
-
-public partial class Event
+public class EventData
 {
     public int Id { get; set; }
 
@@ -21,11 +18,7 @@ public partial class Event
 
     public bool? Done { get; set; }
 
-    public int Idclient { get; set; }
+    public int IdClient { get; set; }
 
-    public int? Idtag { get; set; }
-
-    public virtual Client IdclientNavigation { get; set; } = null!;
-
-    public virtual Tag? IdtagNavigation { get; set; }
+    public int? IdTag { get; set; }
 }
